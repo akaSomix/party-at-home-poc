@@ -7,6 +7,7 @@ import {loggingMiddlewares} from './middlewares/logging';
 
 // ROUTES
 import {userRouter} from './routes/userRoutes';
+import {apiRouter} from './routes/apiRoutes';
 
 // CONFIGURATIONS
 import dotenv from 'dotenv';
@@ -34,6 +35,9 @@ app.use(...loggingMiddlewares);
 /*
  * Define Routes
  */
+
+// Router API meta info
+app.use('/api', apiRouter);
 
 // Router Users
 app.use('/api/users', userRouter);
