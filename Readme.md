@@ -16,8 +16,8 @@ We are trying to design a simple CRUD Application that manages Parties at Home. 
 ## 🛣️ The Roadmap
 
 - [x] Write this Readme
-- [ ] Application Initial Setup
-- [ ] API definition and mock ups
+- [x] Application Initial Setup
+- [x] API definition and mock ups
 - [ ] Prisma Data layer definition and DB Connection
 - [ ] Replace mockups with working business logic
 - [ ] Add Vagrant for local setup

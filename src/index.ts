@@ -1,12 +1,19 @@
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
+
+// MIDDLEWARES
+import helmet from 'helmet';
 import {requestIdentifierMiddleware} from './middlewares/req-identifier';
 import {loggingMiddlewares} from './middlewares/logging';
+
+// ROUTES
+import {userRouter} from './routes/userRoutes';
+
+// CONFIGURATIONS
 import dotenv from 'dotenv';
 
-import helmet from 'helmet';
 
+// Express basic config
 dotenv.config();
-
 const app: Express = express();
 const port = process.env.PORT;
 
@@ -24,9 +31,12 @@ app.use(requestIdentifierMiddleware);
 app.use(...loggingMiddlewares);
 
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
+/*
+ * Define Routes
+ */
+
+// Router Users
+app.use('/api/users', userRouter);
 
 app.listen(port, () => {
   console.log(`✨ Server is running at https://localhost:${port} ✨`);
